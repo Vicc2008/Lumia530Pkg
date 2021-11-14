@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2013, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2013, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -26,51 +26,48 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef __MSM8226_CLOCK_H
-#define __MSM8226_CLOCK_H
+#ifndef __MSM8610_CLOCK_H
+#define __MSM8610_CLOCK_H
 
-#include <Chipset/clock.h>
-#include <Chipset/clock_lib2.h>
-
-#define UART_DM_CLK_RX_TX_BIT_RATE 0xCC
+#include <clock.h>
+#include <clock_lib2.h>
 
 #define REG_MM(off)                     (MSM_MMSS_CLK_CTL_BASE + (off))
 
-#define MDP_GDSCR                       REG_MM(0x2304)
-#define GDSC_POWER_ON_BIT               BIT(31)
-#define GDSC_POWER_ON_STATUS_BIT        BIT(29)
-#define GDSC_EN_FEW_WAIT_MASK           (0x0F << 16)
-#define GDSC_EN_FEW_WAIT_256_MASK       BIT(19)
-
 #define VSYNC_CMD_RCGR                  REG_MM(0x2080)
 #define VSYNC_CFG_RCGR                  REG_MM(0x2084)
-#define MDSS_VSYNC_CBCR                 REG_MM(0x2328)
+#define AXI_CMD_RCGR                    REG_MM(0x5040)
+#define AXI_CFG_RCGR                    REG_MM(0x5044)
 
-#define MDP_CMD_RCGR                    REG_MM(0x2040)
-#define MDP_CFG_RCGR                    REG_MM(0x2044)
-#define MDP_CBCR                        REG_MM(0x231C)
-#define MDP_LUT_CBCR                    REG_MM(0x2320)
-#define MDP_AHB_CBCR                    REG_MM(0x2308)
+#define MDP_AXI_CBCR                    REG_MM(0x2314)
+#define MDP_AHB_CBCR                    REG_MM(0x2318)
+#define MDP_VSYNC_CBCR                  REG_MM(0x231C)
+#define MDP_DSI_CBCR                    REG_MM(0x2320)
+#define MDP_LCDC_CBCR                   REG_MM(0x2340)
 
-#define MDP_AXI_CMD_RCGR                REG_MM(0x5040)
-#define MDP_AXI_CFG_RCGR                REG_MM(0x5044)
-
-#define MDP_AXI_CBCR                    REG_MM(0x2310)
 #define MMSS_S0_AXI_CBCR                REG_MM(0x5064)
 #define MMSS_MMSSNOC_AXI_CBCR           REG_MM(0x506C)
 
-#define DSI_BYTE0_CMD_RCGR              REG_MM(0x2120)
-#define DSI_BYTE0_CFG_RCGR              REG_MM(0x2124)
-#define DSI_BYTE0_CBCR                  REG_MM(0x233C)
-#define DSI_ESC0_CMD_RCGR               REG_MM(0x2160)
-#define DSI_ESC0_CFG_RCGR               REG_MM(0x2164)
-#define DSI_ESC0_CBCR                   REG_MM(0x2344)
-#define DSI_PIXEL0_CMD_RCGR             REG_MM(0x2000)
-#define DSI_PIXEL0_CFG_RCGR             REG_MM(0x2004)
-#define DSI_PIXEL0_CBCR                 REG_MM(0x2314)
-#define DSI_PIXEL0_M                    REG_MM(0x2008)
-#define DSI_PIXEL0_N                    REG_MM(0x200C)
-#define DSI_PIXEL0_D                    REG_MM(0x2010)
+#define DSI_CBCR                        REG_MM(0x2324)
+#define DSI_BYTE_CBCR                   REG_MM(0x2328)
+#define DSI_ESC_CBCR                    REG_MM(0x232C)
+#define DSI_AHB_CBCR                    REG_MM(0x2330)
+#define DSI_PCLK_CBCR                   REG_MM(0x233C)
+
+#define DSI_CMD_RCGR                    REG_MM(0x2020)
+#define DSI_CFG_RCGR                    REG_MM(0x2024)
+#define DSI_PCLK_CMD_RCGR               REG_MM(0x2000)
+#define DSI_PCLK_CFG_RCGR               REG_MM(0x2004)
+#define DSI_BYTE_CMD_RCGR               REG_MM(0x2120)
+#define DSI_BYTE_CFG_RCGR               REG_MM(0x2124)
+
+#define UART_DM_CLK_RX_TX_BIT_RATE 0xCC
+
+#define VCO_MAX_DIVIDER		 256
+#define VCO_MIN_RATE       600000000
+#define VCO_MAX_RATE       1200000000
+#define VCO_PREF_DIV_RATIO 26
+#define VCO_PARENT_RATE    19200000
 
 void platform_clock_init(void);
 
@@ -78,15 +75,11 @@ void clock_init_mmc(uint32_t interface);
 void clock_config_mmc(uint32_t interface, uint32_t freq);
 void clock_config_uart_dm(uint8_t id);
 void hsusb_clock_init(void);
-void clock_config_ce(uint8_t instance);
+void mdp_clock_enable(void);
+void mdp_clock_disable(void);
+void dsi_clock_enable(uint32_t dsiclk_rate, uint32_t byteclk_rate);
+void dsi_clock_disable(void);
 void clock_ce_enable(uint8_t instance);
 void clock_ce_disable(uint8_t instance);
-void mdp_clock_init(void);
-void mdp_gdsc_ctrl(uint8_t enable);
-void mdp_clock_disable(void);
-void mdp_clock_enable(void);
-void mmss_bus_clocks_enable(void);
-void mmss_bus_clocks_disable(void);
-void mmss_dsi_clocks_enable(uint8_t pclk0_m, uint8_t pclk0_n, uint8_t pclk0_d);
-void mmss_dsi_clocks_disable(void);
+
 #endif

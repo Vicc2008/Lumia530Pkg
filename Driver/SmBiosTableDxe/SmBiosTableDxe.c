@@ -121,7 +121,7 @@ SMBIOS_TABLE_TYPE0 mBIOSInfoType0 = {
 };
 
 CHAR8 *mBIOSInfoType0Strings[] = {
-  "Garden State", // Vendor String
+  "Movistar", // Vendor String
   "Built: " __DATE__,             // BiosVersion String
   "Built: " __DATE__,             // BiosReleaseDate String
   NULL
@@ -143,10 +143,10 @@ SMBIOS_TABLE_TYPE1 mSysInfoType1 = {
 };
 CHAR8  *mSysInfoType1Strings[] = {
   "Nokia",
-  "Lumia 630",
-  "RM-976",
+  "Lumia 530",
+  "RM-1018",
   "0bc52bb9-9473-4875-be2a-3973076c20e2",
-  "RM-976",
+  "RM-1018",
   "Phone",
   NULL
 };
@@ -177,8 +177,8 @@ SMBIOS_TABLE_TYPE2  mBoardInfoType2 = {
 };
 CHAR8  *mBoardInfoType2Strings[] = {
   "Nokia",
-  "Lumia 630",
-  "RM-976",
+  "Lumia 530",
+  "RM-1018",
   "0bc52bb9-9473-4875-be2a-3973076c20e2",
   "",
   "",
@@ -207,7 +207,7 @@ SMBIOS_TABLE_TYPE3  mEnclosureInfoType3 = {
   { { 0 } },    // ContainedElements[1];
 };
 CHAR8  *mEnclosureInfoType3Strings[] = {
-  "Lumia 630",
+  "Lumia 530",
   "1",
   "0bc52bb9-9473-4875-be2a-3973076c20e2",
   "",
@@ -299,8 +299,8 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4 = {
 CHAR8 *mProcessorInfoType4Strings[] = {
   "Socket",
   "Qualcomm Inc.",
-  "Qualcomm Snapdragon 400 Processor (8226)",
-  "MSM8226",
+  "Qualcomm Snapdragon 200 Processor (8612)",
+  "MSM8612",
   NULL
 };
 

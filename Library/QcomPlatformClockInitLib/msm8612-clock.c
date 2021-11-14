@@ -521,7 +521,7 @@ static struct branch_clk mdss_vsync_clk = {
 };
 
 /* Clock lookup table */
-static struct clk_lookup msm_clocks_8226[] =
+static struct clk_lookup msm_clocks_8612[] =
 {
 	CLK_LOOKUP("sdc1_iface_clk", gcc_sdcc1_ahb_clk.c),
 	CLK_LOOKUP("sdc1_core_clk",  gcc_sdcc1_apps_clk.c),
@@ -535,25 +535,20 @@ static struct clk_lookup msm_clocks_8226[] =
 	CLK_LOOKUP("usb_iface_clk",  gcc_usb_hs_ahb_clk.c),
 	CLK_LOOKUP("usb_core_clk",   gcc_usb_hs_system_clk.c),
 
+	CLK_LOOKUP("mmss_mmssnoc_axi_clk", mmss_mmssnoc_axi_clk.c),
+	CLK_LOOKUP("mmss_s0_axi_clk",      mmss_s0_axi_clk.c),
+	CLK_LOOKUP("mdss_vsync_clk",       mdss_vsync_clk.c),
+	CLK_LOOKUP("mdp_ahb_clk",          mdp_ahb_clk.c),
+
 	CLK_LOOKUP("ce1_ahb_clk",  gcc_ce1_ahb_clk.c),
 	CLK_LOOKUP("ce1_axi_clk",  gcc_ce1_axi_clk.c),
 	CLK_LOOKUP("ce1_core_clk", gcc_ce1_clk.c),
 	CLK_LOOKUP("ce1_src_clk",  ce1_clk_src.c),
-
-	CLK_LOOKUP("mdp_ahb_clk",          mdp_ahb_clk.c),
-	CLK_LOOKUP("mdss_esc0_clk",        mdss_esc0_clk.c),
-	CLK_LOOKUP("mdss_axi_clk",         mdss_axi_clk.c),
-	CLK_LOOKUP("mmss_mmssnoc_axi_clk", mmss_mmssnoc_axi_clk.c),
-	CLK_LOOKUP("mmss_s0_axi_clk",      mmss_s0_axi_clk.c),
-	CLK_LOOKUP("mdss_vsync_clk",       mdss_vsync_clk.c),
-	CLK_LOOKUP("mdss_mdp_clk_src",     mdss_mdp_clk_src.c),
-	CLK_LOOKUP("mdss_mdp_clk",         mdss_mdp_clk.c),
-	CLK_LOOKUP("mdss_mdp_lut_clk",     mdss_mdp_lut_clk.c),
 };
 
 /*void platform_clock_init(void)
 {
-	clk_init(msm_clocks_8226, ARRAY_SIZE(msm_clocks_8226));
+	clk_init(msm_clocks_8612);
 }*/
 
  RETURN_STATUS
@@ -563,8 +558,8 @@ static struct clk_lookup msm_clocks_8226[] =
   unsigned *num
   )
 {
-	*clist = msm_clocks_8226;
-	*num = ARRAY_SIZE(msm_clocks_8226);
+	*clist = msm_clocks_8612;
+	*num = ARRAY_SIZE(msm_clocks_8612);
 
  	return RETURN_SUCCESS;
  }
