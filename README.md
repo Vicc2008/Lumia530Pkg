@@ -1,5 +1,5 @@
 # Lumia530Pkg
-WIP Custom ARM UEFI firmware for Lumia930
+WIP Custom ARM UEFI firmware for Lumia530
 
 ![alt text](https://blog.rickliu.im/wp-content/uploads/2019/04/IMG_20190308_220745.jpg "Boot manager on Lumia930")
 
