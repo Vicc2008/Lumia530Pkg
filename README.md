@@ -1,4 +1,4 @@
-# Lumia930Pkg
+# Lumia530Pkg
 WIP Custom ARM UEFI firmware for Lumia930
 
 ![alt text](https://blog.rickliu.im/wp-content/uploads/2019/04/IMG_20190308_220745.jpg "Boot manager on Lumia930")
@@ -16,3 +16,5 @@ For a partially working kernel, see https://github.com/rickliu2000/linux_nokia_m
 
 # TO-DO
 We no longer need to implement MpPark since the recent update of bootshim by @imbushuo. A ram patch stops core 1-3 from being powered on before the old firmware exits
+
+Based on [Lumia630Pkg](https://github.com/FieryFlames/Lumia630Pkg) by @FieryFlames
