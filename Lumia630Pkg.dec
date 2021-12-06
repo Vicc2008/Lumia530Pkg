@@ -24,7 +24,7 @@
 
 [PcdsFixedAtBuild.common]
   # Simple FrameBuffer
-  gLumia630PkgTokenSpaceGuid.PcdMipiFrameBufferAddress|0x0FF00000|UINT32|0x30
+  gLumia630PkgTokenSpaceGuid.PcdMipiFrameBufferAddress|0x00400000|UINT32|0x30
   gLumia630PkgTokenSpaceGuid.PcdMipiFrameBufferWidth|480|UINT32|0x31
   gLumia630PkgTokenSpaceGuid.PcdMipiFrameBufferHeight|854|UINT32|0x32
   gLumia630PkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32|UINT32|0x33

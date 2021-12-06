@@ -29,8 +29,8 @@
 #ifndef __MSM8610_CLOCK_H
 #define __MSM8610_CLOCK_H
 
-#include <clock.h>
-#include <clock_lib2.h>
+#include <Chipset/clock.h>
+#include <Chipset/clock_lib2.h>
 
 #define REG_MM(off)                     (MSM_MMSS_CLK_CTL_BASE + (off))
 
