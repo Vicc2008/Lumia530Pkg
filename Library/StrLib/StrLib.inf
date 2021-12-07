@@ -16,4 +16,4 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  Lumia630Pkg/Lumia630Pkg.dec
+  Lumia530Pkg/Lumia530Pkg.dec

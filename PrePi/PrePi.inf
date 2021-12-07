@@ -23,7 +23,7 @@
   ArmPkg/ArmPkg.dec
   MdeModulePkg/MdeModulePkg.dec
   ArmPlatformPkg/ArmPlatformPkg.dec
-  Lumia630Pkg/Lumia630Pkg.dec
+  Lumia530Pkg/Lumia530Pkg.dec
 
 [LibraryClasses]
   ArmLib
@@ -71,6 +71,6 @@
 [Pcd]
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
 
-  gLumia630PkgTokenSpaceGuid.PcdPreAllocatedMemorySize
-  gLumia630PkgTokenSpaceGuid.PcdUefiMemPoolSize
-  gLumia630PkgTokenSpaceGuid.PcdMipiFrameBufferAddress
+  gLumia530PkgTokenSpaceGuid.PcdPreAllocatedMemorySize
+  gLumia530PkgTokenSpaceGuid.PcdUefiMemPoolSize
+  gLumia530PkgTokenSpaceGuid.PcdMipiFrameBufferAddress
