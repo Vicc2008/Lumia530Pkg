@@ -279,7 +279,7 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4 = {
     0   // ProcessorVoltageIndicateLegacy      :1;
   },
   0,                      // ExternalClock;
-  2000,                      // MaxSpeed;
+  1200,                      // MaxSpeed;
   2000,                      // CurrentSpeed;
   0x41,                   // Status;
   ProcessorUpgradeOther,  // ProcessorUpgrade;      ///< The enumeration value from PROCESSOR_UPGRADE.
@@ -289,9 +289,9 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4 = {
   0,                      // SerialNumber;
   0,                      // AssetTag;
   4,                      // PartNumber;
-  1,                      // CoreCount;
-  1,                      // EnabledCoreCount;
-  0,                      // ThreadCount;
+  FixedPcdGet32(PcdCoreCount),                         // CoreCount;
+  FixedPcdGet32(PcdCoreCount),                         // EnabledCoreCount;
+  FixedPcdGet32(PcdCoreCount),                         // ThreadCount;
   0x8,                   // ProcessorCharacteristics;
   ProcessorFamilyARM,     // ARM Processor Family;
 };
