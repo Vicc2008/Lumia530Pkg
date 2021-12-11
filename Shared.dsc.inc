@@ -251,6 +251,7 @@
   LcmLib|Lumia530Pkg/Library/LcmLib/LcmLib.inf
   MicroLibC|Lumia530Pkg/Library/MicroLibC/MicroLibC.inf
   StrLib|Lumia530Pkg/Library/StrLib/StrLib.inf
+  SsbiLib|Lumia530Pkg/Driver/SsbiDxe/SsbiImplLib.inf
   SmemLib|Lumia530Pkg/Driver/SmemDxe/SmemImplLib.inf
   
   # System Reset
@@ -270,6 +271,7 @@
   SpmiLib|Lumia530Pkg/Driver/SpmiDxe/SpmiImplLib.inf
   Pm8x41Lib|Lumia530Pkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
   ClockLib|Lumia530Pkg/Driver/ClockDxe/ClockImplLib.inf
+  SsbiLib|Lumia530Pkg/Driver/SsbiDxe/SsbiImplLib.inf
 
 [LibraryClasses.common.DXE_CORE]
   HobLib|MdePkg/Library/DxeCoreHobLib/DxeCoreHobLib.inf
@@ -297,6 +299,8 @@
   ClockLib|Lumia530Pkg/Driver/ClockDxe/ClockImplLib.inf
   RpmLib|Lumia530Pkg/Driver/SmdRpmDxe/RpmLib.inf
   SmemLib|Lumia530Pkg/Driver/SmemDxe/SmemImplLib.inf
+  SsbiLib|Lumia530Pkg/Driver/SsbiDxe/SsbiImplLib.inf
+
 
 
 [LibraryClasses.common.UEFI_APPLICATION]
@@ -316,6 +320,7 @@
   Pm8x41Lib|Lumia530Pkg/Driver/Pm8x41Dxe/Pm8x41Lib.inf
   ClockLib|Lumia530Pkg/Driver/ClockDxe/ClockImplLib.inf
   SmemLib|Lumia530Pkg/Driver/SmemDxe/SmemImplLib.inf
+  SsbiLib|Lumia530Pkg/Driver/SsbiDxe/SsbiImplLib.inf
 
 [LibraryClasses.common.UEFI_DRIVER]
   ReportStatusCodeLib|MdeModulePkg/Library/DxeReportStatusCodeLib/DxeReportStatusCodeLib.inf
@@ -333,6 +338,7 @@
   Pm8x41Lib|Lumia530Pkg/Driver/Pm8x41Dxe/Pm8x41Lib.inf
   ClockLib|Lumia530Pkg/Driver/ClockDxe/ClockImplLib.inf
   SmemLib|Lumia530Pkg/Driver/SmemDxe/SmemImplLib.inf
+  SsbiLib|Lumia530Pkg/Driver/SsbiDxe/SsbiImplLib.inf
 
 [LibraryClasses.common.DXE_RUNTIME_DRIVER]
   HobLib|MdePkg/Library/DxeHobLib/DxeHobLib.inf
@@ -384,6 +390,7 @@
   Lumia530Pkg/Driver/SdhciMMCHSDxe/SdhciMMCHS.inf
   Lumia530Pkg/Driver/SmemDxe/SmemDxe.inf
   Lumia530Pkg/Driver/SmdRpmDxe/RpmDxe.inf
+  Lumia530Pkg/Driver/SsbiDxe/SsbiDxe.inf
 
 
 
@@ -397,6 +404,9 @@
 
   # Security Stub
   MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
+
+  # Virtual Keyboard
+  EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
 
   # Graphics Driver
   Lumia530Pkg/Driver/SimpleFbDxe/SimpleFbDxe.inf
