@@ -60,7 +60,7 @@
    # Console Resolution
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|480
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|854
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|122
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|24
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|45
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|100
 
 !include Lumia530Pkg/Shared.dsc.inc
