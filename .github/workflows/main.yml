@@ -2,9 +2,9 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "grub" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "grub" ]
 
 jobs:
   build:
