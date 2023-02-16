@@ -26,7 +26,7 @@ jobs:
       run: |
         cd /home/runner/work/EDK2WorkDir/
         git clone https://github.com/Tianocore/edk2.git --depth=1 --recursive 
-        git clone https://github.com/vicenteicc2008/Lumia435Pkg --depth=1 edk2/Lumia435Pkg
+        git clone https://github.com/vicenteicc2008/Lumia530Pkg --depth=1 edk2/Lumia530Pkg
   
     - name: Build BaseTools
       run: |
