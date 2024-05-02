@@ -123,6 +123,9 @@
   gQcomTokenSpaceGuid.PcdMsmSharedSize|0x0|UINT64|0x00000002
   gQcomTokenSpaceGuid.PcdSmemTargetInfoAddress|0|UINT64|0x0000003
 
+  # ScmDxe
+  gQcomTokenSpaceGuid.PcdTcsrBootMiscDetect|0|UINT64|0x000000a0
+
 [PcdsFeatureFlag.common]
   # MMCHSDxe
   gQcomTokenSpaceGuid.PcdMmcAdmSupport|FALSE|BOOLEAN|0x00010001
