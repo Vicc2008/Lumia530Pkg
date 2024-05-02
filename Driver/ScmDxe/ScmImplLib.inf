@@ -1,0 +1,25 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = ScmImplLib
+  FILE_GUID                      = DC698287-C338-4497-B019-8D03D39F672C
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = ScmLib
+  CONSTRUCTOR                    = ScmImplLibInitialize
+
+[Sources.common]
+  LibraryImpl.c
+  scm.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  ArmPkg/ArmPkg.dec
+  Lumia530Pkg/Lumia530Pkg.dec
+
+[LibraryClasses]
+  ArmLib
+  MallocLib
+  CacheMaintenanceLib
+
+[Pcd.common]
+  gQcomTokenSpaceGuid.PcdTcsrBootMiscDetect
