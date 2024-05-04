@@ -271,7 +271,6 @@
   SpmiLib|Lumia530Pkg/Driver/SpmiDxe/SpmiImplLib.inf
   Pm8x41Lib|Lumia530Pkg/Driver/Pm8x41Dxe/Pm8x41ImplLib.inf
   ClockLib|Lumia530Pkg/Driver/ClockDxe/ClockImplLib.inf
-  ScmLib|Lumia530Pkg/Driver/ScmDxe/ScmImplLib.inf
 
 [LibraryClasses.common.DXE_CORE]
   HobLib|MdePkg/Library/DxeCoreHobLib/DxeCoreHobLib.inf
@@ -299,7 +298,6 @@
   ClockLib|Lumia530Pkg/Driver/ClockDxe/ClockImplLib.inf
   RpmLib|Lumia530Pkg/Driver/SmdRpmDxe/RpmLib.inf
   SmemLib|Lumia530Pkg/Driver/SmemDxe/SmemImplLib.inf
-  ScmLib|Lumia530Pkg/Driver/ScmDxe/ScmLib.inf
 
 
 [LibraryClasses.common.UEFI_APPLICATION]
@@ -319,7 +317,6 @@
   Pm8x41Lib|Lumia530Pkg/Driver/Pm8x41Dxe/Pm8x41Lib.inf
   ClockLib|Lumia530Pkg/Driver/ClockDxe/ClockImplLib.inf
   SmemLib|Lumia530Pkg/Driver/SmemDxe/SmemImplLib.inf
-  ScmLib|Lumia530Pkg/Driver/ScmDxe/ScmLib.inf
 
 [LibraryClasses.common.UEFI_DRIVER]
   ReportStatusCodeLib|MdeModulePkg/Library/DxeReportStatusCodeLib/DxeReportStatusCodeLib.inf
@@ -337,7 +334,6 @@
   Pm8x41Lib|Lumia530Pkg/Driver/Pm8x41Dxe/Pm8x41Lib.inf
   ClockLib|Lumia530Pkg/Driver/ClockDxe/ClockImplLib.inf
   SmemLib|Lumia530Pkg/Driver/SmemDxe/SmemImplLib.inf
-  ScmLib|Lumia530Pkg/Driver/ScmDxe/ScmLib.inf
 
 [LibraryClasses.common.DXE_RUNTIME_DRIVER]
   HobLib|MdePkg/Library/DxeHobLib/DxeHobLib.inf
@@ -390,7 +386,6 @@
   Lumia530Pkg/Driver/SdhciMMCHSDxe/SdhciMMCHS.inf
   Lumia530Pkg/Driver/SmemDxe/SmemDxe.inf
   Lumia530Pkg/Driver/SmdRpmDxe/RpmDxe.inf
-  Lumia530Pkg/Driver/ScmDxe/ScmDxe.inf
 
 
 
