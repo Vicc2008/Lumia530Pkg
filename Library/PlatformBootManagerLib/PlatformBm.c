@@ -35,6 +35,7 @@
 #include <Guid/EventGroup.h>
 #include <Guid/TtyTerm.h>
 
+#include <Configuration/BootDevices.h>
 #include "PlatformBm.h"
 
 #define DP_NODE_LEN(Type) { (UINT8)sizeof (Type), (UINT8)(sizeof (Type) >> 8) }
@@ -256,7 +257,7 @@ IsPciDisplay (
   Status = PciIo->Pci.Read (PciIo, EfiPciIoWidthUint32, 0 /* Offset */,
                         sizeof Pci / sizeof (UINT32), &Pci);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: %s: %r\n", __FUNCTION__, ReportText, Status));
+    DEBUG((EFI_D_ERROR, "%a: %s: %r\n", __FUNCTION__, ReportText, Status));
     return FALSE;
   }
 
@@ -284,7 +285,7 @@ Connect (
                   NULL,   // RemainingDevicePath -- produce all children
                   FALSE   // Recursive
                   );
-  DEBUG ((EFI_ERROR (Status) ? EFI_D_ERROR : EFI_D_VERBOSE, "%a: %s: %r\n",
+  DEBUG((EFI_ERROR (Status) ? EFI_D_ERROR : EFI_D_VERBOSE, "%a: %s: %r\n",
     __FUNCTION__, ReportText, Status));
 }
 
@@ -313,19 +314,19 @@ AddOutput (
 
   Status = EfiBootManagerUpdateConsoleVariable (ConOut, DevicePath, NULL);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: %s: adding to ConOut: %r\n", __FUNCTION__,
+    DEBUG((EFI_D_ERROR, "%a: %s: adding to ConOut: %r\n", __FUNCTION__,
       ReportText, Status));
     return;
   }
 
   Status = EfiBootManagerUpdateConsoleVariable (ErrOut, DevicePath, NULL);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: %s: adding to ErrOut: %r\n", __FUNCTION__,
+    DEBUG((EFI_D_ERROR, "%a: %s: adding to ErrOut: %r\n", __FUNCTION__,
       ReportText, Status));
     return;
   }
 
-  DEBUG ((EFI_D_VERBOSE, "%a: %s: added to ConOut and ErrOut\n", __FUNCTION__,
+  DEBUG((EFI_D_VERBOSE, "%a: %s: added to ConOut and ErrOut\n", __FUNCTION__,
     ReportText));
 }
 
@@ -391,7 +392,7 @@ AddInput (
     return;
   }
 
-  DEBUG ((EFI_D_VERBOSE, "%a: %s: added to ConOut and ErrOut\n", __FUNCTION__,
+  DEBUG((EFI_D_VERBOSE, "%a: %s: added to ConOut and ErrOut\n", __FUNCTION__,
     ReportText));
 }
 
@@ -419,7 +420,7 @@ PlatformRegisterFvBootOption (
                   );
   ASSERT_EFI_ERROR (Status);
 
-  EfiInitializeFwVolDevicepathNode (&FileNode, FileGuid);
+  EfiInitializeFwVolDevicepathNode(&FileNode, FileGuid);
   DevicePath = DevicePathFromHandle (LoadedImage->DeviceHandle);
   ASSERT (DevicePath != NULL);
   DevicePath = AppendDevicePathNode (
@@ -439,7 +440,7 @@ PlatformRegisterFvBootOption (
              0
              );
   ASSERT_EFI_ERROR (Status);
-  FreePool (DevicePath);
+  FreePool(DevicePath);
 
   BootOptions = EfiBootManagerGetLoadOptions (
                   &BootOptionCount, LoadOptionTypeBoot
@@ -453,8 +454,8 @@ PlatformRegisterFvBootOption (
     Status = EfiBootManagerAddLoadOptionVariable (&NewOption, MAX_UINTN);
     ASSERT_EFI_ERROR (Status);
   }
-  EfiBootManagerFreeLoadOption (&NewOption);
-  EfiBootManagerFreeLoadOptions (BootOptions, BootOptionCount);
+  EfiBootManagerFreeLoadOption(&NewOption);
+  EfiBootManagerFreeLoadOptions(BootOptions, BootOptionCount);
 }
 
 
@@ -553,8 +554,8 @@ GetPlatformOptions (
         __FUNCTION__, BootOptions[Index].Description, Status));
     }
   }
-  EfiBootManagerFreeLoadOptions (CurrentBootOptions, CurrentBootOptionCount);
-  EfiBootManagerFreeLoadOptions (BootOptions, BootCount);
+  EfiBootManagerFreeLoadOptions(CurrentBootOptions, CurrentBootOptionCount);
+  EfiBootManagerFreeLoadOptions(BootOptions, BootCount);
   FreePool (BootKeys);
 }
 STATIC
@@ -567,7 +568,7 @@ PlatformRegisterOptionsAndKeys (
   EFI_INPUT_KEY                PowerBtn;
   EFI_BOOT_MANAGER_LOAD_OPTION BootOption;
 
-  GetPlatformOptions ();
+  GetPlatformOptions();
 
   PowerBtn.ScanCode     = SCAN_NULL;
   PowerBtn.UnicodeChar  = CHAR_CARRIAGE_RETURN;
@@ -602,21 +603,21 @@ PlatformBootManagerBeforeConsole (
   //
   // Signal EndOfDxe PI Event
   //
-  EfiEventGroupSignal (&gEfiEndOfDxeEventGroupGuid);
+  EfiEventGroupSignal(&gEfiEndOfDxeEventGroupGuid);
 
   //
   // Locate the PCI root bridges and make the PCI bus driver connect each,
   // non-recursively. This will produce a number of child handles with PciIo on
   // them.
   //
-  FilterAndProcess (&gEfiPciRootBridgeIoProtocolGuid, NULL, Connect);
+  FilterAndProcess(&gEfiPciRootBridgeIoProtocolGuid, NULL, Connect);
 
   //
   // Find all display class PCI devices (using the handles from the previous
   // step), and connect them non-recursively. This should produce a number of
   // child handles with GOPs on them.
   //
-  FilterAndProcess (&gEfiPciIoProtocolGuid, IsPciDisplay, Connect);
+  FilterAndProcess(&gEfiPciIoProtocolGuid, IsPciDisplay, Connect);
 
   //
   // Now add the device path of all handles with GOP on them to ConOut and
@@ -628,7 +629,7 @@ PlatformBootManagerBeforeConsole (
   // Now add the device path of all handles with QcomKeypadDeviceProtocolGuid
   // on them to ConIn.
   //
-  FilterAndProcess (&gEFIDroidKeypadDeviceProtocolGuid, NULL, AddInput);
+  FilterAndProcess(&gEFIDroidKeypadDeviceProtocolGuid, NULL, AddInput);
 
   //
   // Add the hardcoded short-form USB keyboard device path to ConIn.
@@ -667,24 +668,24 @@ HandleCapsules (
   BOOLEAN                     NeedReset;
   EFI_STATUS                  Status;
 
-  DEBUG ((DEBUG_INFO, "%a: processing capsules ...\n", __FUNCTION__));
+  DEBUG((DEBUG_INFO, "%a: processing capsules ...\n", __FUNCTION__));
 
   Status = gBS->LocateProtocol (&gEsrtManagementProtocolGuid, NULL,
                   (VOID **)&EsrtManagement);
   if (!EFI_ERROR (Status)) {
-    EsrtManagement->SyncEsrtFmp ();
+    EsrtManagement->SyncEsrtFmp();
   }
 
   //
   // Find all capsule images from hob
   //
-  HobPointer.Raw = GetHobList ();
+  HobPointer.Raw = GetHobList();
   NeedReset = FALSE;
   while ((HobPointer.Raw = GetNextHob (EFI_HOB_TYPE_UEFI_CAPSULE,
                              HobPointer.Raw)) != NULL) {
     CapsuleHeader = (VOID *)(UINTN)HobPointer.Capsule->BaseAddress;
 
-    Status = ProcessCapsuleImage (CapsuleHeader);
+    Status = ProcessCapsuleImage(CapsuleHeader);
     if (EFI_ERROR (Status)) {
       DEBUG ((DEBUG_ERROR, "%a: failed to process capsule %p - %r\n",
         __FUNCTION__, CapsuleHeader, Status));
@@ -692,7 +693,7 @@ HandleCapsules (
     }
 
     NeedReset = TRUE;
-    HobPointer.Raw = GET_NEXT_HOB (HobPointer);
+    HobPointer.Raw = GET_NEXT_HOB(HobPointer);
   }
 
   if (NeedReset) {
@@ -736,13 +737,13 @@ PlatformBootManagerAfterConsole (
   //
   // Show the splash screen.
   //
-  Status = BootLogoEnableLogo ();
+  Status = BootLogoEnableLogo();
   if (EFI_ERROR (Status)) {
     if (FirmwareVerLength > 0) {
       Print (VERSION_STRING_PREFIX L"%s\n",
         PcdGetPtr (PcdFirmwareVersionString));
     }
-    Print (L"Press ESCAPE for boot options ");
+    Print (L"Press ESC for boot options ");
   } else if (FirmwareVerLength > 0) {
     Status = gBS->HandleProtocol (gST->ConsoleOutHandle,
                     &gEfiGraphicsOutputProtocolGuid, (VOID **)&GraphicsOutput);
@@ -760,7 +761,7 @@ PlatformBootManagerAfterConsole (
   //
   // Connect the rest of the devices.
   //
-  EfiBootManagerConnectAll ();
+  EfiBootManagerConnectAll();
 
   //
   // On ARM, there is currently no reason to use the phased capsule
@@ -769,7 +770,7 @@ PlatformBootManagerAfterConsole (
   // when the console is up and we can actually give the user some
   // feedback about what is going on.
   //
-  HandleCapsules ();
+  HandleCapsules();
 
   //
   // Enumerate all possible boot options.
