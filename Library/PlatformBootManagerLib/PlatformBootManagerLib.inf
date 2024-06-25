@@ -35,6 +35,7 @@
   PlatformBm.c
 
 [Packages]
+  ArmPkg/ArmPkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
   MdeModulePkg/MdeModulePkg.dec
   MdePkg/MdePkg.dec
@@ -42,6 +43,8 @@
   Lumia530Pkg/Lumia530Pkg.dec
 
 [LibraryClasses]
+  ArmLib
+  ArmSmcLib
   BaseLib
   BaseMemoryLib
   BootLogoLib
