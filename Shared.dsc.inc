@@ -223,14 +223,6 @@
   TpmMeasurementLib|MdeModulePkg/Library/TpmMeasurementLibNull/TpmMeasurementLibNull.inf
   AuthVariableLib|MdeModulePkg/Library/AuthVariableLibNull/AuthVariableLibNull.inf
   VarCheckLib|MdeModulePkg/Library/VarCheckLib/VarCheckLib.inf
-#  BaseStackCheckLib|MdePkg/Library/BaseStackCheckLib/BaseStackCheckLib.inf
-#  FBPTLib|DragonboardVendorPkg/Library/FBPTLib/FBPTLib.inf
-#  QcomBaseLib|DragonboardVendorPkg/Library/QcomBaseLib/QcomBaseLib.inf
-#  ProcLib|DragonboardVendorPkg/Library/ProcLib/ProcLib.inf
-#  ShLib|DragonboardVendorPkg/Library/ShLib/ShLibMgr.inf
-#  TargetResetLib|DragonboardVendorPkg/Library/TargetResetLib/TargetResetLib.inf
-#  SPMILib|DragonboardPkg/Library/SPMILibV2/SPMILib.inf
-#  PmicShutdownLibBoot|DragonboardVendorPkg/Library/PmicShutdownLib/PmicShutdownBoottimeLib.inf
 
   # Platform Drivers
   SerialPortLib|Lumia530Pkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
