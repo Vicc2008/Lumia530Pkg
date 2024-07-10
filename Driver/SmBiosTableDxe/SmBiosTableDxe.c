@@ -121,7 +121,7 @@ SMBIOS_TABLE_TYPE0 mBIOSInfoType0 = {
 };
 
 CHAR8 *mBIOSInfoType0Strings[] = {
-  "Movistar", // Vendor String
+  "Bad Dodo (Bad Bunny).", // Vendor String
   "Built: " __DATE__,             // BiosVersion String
   "Built: " __DATE__,             // BiosReleaseDate String
   NULL
