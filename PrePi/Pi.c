@@ -61,9 +61,6 @@ UartInit
 {
     // Move Framebuffer to the top
     MmioWrite32(FB_ADDR_REG,FB_NEW_ADDR);
-    // Flush using CTL0_FLUSH and Flush VIG0
-    MmioWrite32(0xfd900618,0x00000001);
-    MmioWrite32(0xfd900718,0x00000001); 
 
     SerialPortInitialize();
     DEBUG ((EFI_D_ERROR, "\nTianoCore on Nokia Lumia 530 (ARM)\n"));
@@ -144,16 +141,6 @@ Main
       CpuDeadLoop();
     }
     DEBUG((EFI_D_INFO | EFI_D_LOAD, "GIC configured\n"));
-
-    DEBUG((
-        EFI_D_INFO | EFI_D_LOAD,
-        "SRC0_addrs 0= 0x%p, 1 = 0x%p, 2 = 0x%p, 3 = 0x%p\n 4 = 0x%p\n",
-        MmioRead32(0xFD901E14),
-        MmioRead32(0xFD902214),
-        MmioRead32(0xFD902A14),
-        MmioRead32(0xFD902E14),
-        MmioRead32(0xFD990008)
-  ));
 
   // Create the Stacks HOB (reserve the memory for all stacks)
 
