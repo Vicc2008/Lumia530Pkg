@@ -37,7 +37,7 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSupportUpdateCapsuleReset|TRUE
 
 [PcdsFixedAtBuild.common]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Bad Dodo (Bad Bunny)"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Some Random Trap Artist In Chile"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"1.01"
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemId|"QCOM  "
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemTableId|0x324B44454D4F4351
