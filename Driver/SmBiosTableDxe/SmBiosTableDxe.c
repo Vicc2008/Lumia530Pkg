@@ -121,7 +121,7 @@ SMBIOS_TABLE_TYPE0 mBIOSInfoType0 = {
 };
 
 CHAR8 *mBIOSInfoType0Strings[] = {
-  "Bad Dodo (Bad Bunny).", // Vendor String
+  "Dodo Vi-C.", // Vendor String
   "Built: " __DATE__,             // BiosVersion String
   "Built: " __DATE__,             // BiosReleaseDate String
   NULL
