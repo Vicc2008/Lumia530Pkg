@@ -1,5 +1,5 @@
 # Lumia530Pkg
-WIP Custom ARM UEFI firmware for Lumia530
+WIP Custom ARM UEFI firmware for Nokia Lumia 530
 
 # Current Status
 linux boots correctly on Lumia 530
